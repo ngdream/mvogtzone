@@ -1,0 +1,68 @@
+.sidebar
+{
+   
+    border-right: 0.5px solid rgb(230,227,227);
+    background-color:#fff;
+    padding: 10px 0;
+    text-align: center;
+    
+}
+
+
+a
+{
+    text-decoration: none;
+}
+
+.sidebar a
+{
+    color: #fff;
+}
+
+
+
+
+.sidebar ul li
+{
+    display: flex;
+    align-items: center;
+   padding: 5px 10px;
+   border-radius: 5px;
+
+}
+
+.sidebar ul li span
+{
+    margin-left: 10px;
+}
+
+.sidebar .icon
+{
+    color: #bbb;
+    font-size: 3rem;
+}
+
+
+.sidebar  li:hover .icon
+{
+color: #333;
+}
+
+.sidebar a.active .icon
+{
+    color:#00ccff;
+ 
+}
+
+
+
+.sidebar .icon:focus
+{
+}
+
+.bottom
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
