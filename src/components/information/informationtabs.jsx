@@ -11,6 +11,10 @@ import { get, run } from '../../renderer';
 import { Button } from '@mui/material';
 
 
+
+
+
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -51,51 +55,52 @@ export default function InformationTabs(props) {
 
   const [loading, setloading] = React.useState(true)
   const [notation, setnotation] = React.useState(new Object())
-  const actualize = () => {
+  const actualize = async () => {
 
-    get(`select * from notation where  teacher_id="${window.selected.matricule}" and trim="${trimestre.id}" `).then((result) => {
+    var notations = await get(`select * from notation where  teacher_id="${window.selected.matricule}" and trim="${trimestre.id}"`)
 
-      if (result.length != 0) {
-        if (notation.id != result[0].id)
-          setnotation(result[0])
+    if (notations.length != 0) {
+      if (notation.id != notations[0].id)
+        setnotation(notations[0])
 
 
-      }
-      else if (notation.id) {
-        setnotation({ id: undefined })
-      }
-      setloading(false)
-    })
+    }
+    else if (notation.id) {
+      setnotation({ id: undefined })
+    }
+    setloading(false)
   }
+
 
   actualize()
 
 
-  const setvalue = (value, field) => {
-    if (value == true)
+  const setvalue = async (value, field) => {
+    if (value === true)
       value = 1
-    else if (value == false)
+    else if (value === false)
       value = 0
 
 
-    run(`UPDATE notation SET ${field} = ${value} WHERE teacher_id="${window.selected.matricule}" and trim=${window.trimestre.id} ;`).then((result => {
-      get(`select * from notation where  teacher_id="${window.selected.matricule}" and trim="${trimestre.id}" `).then((result) => {
+    if (typeof value === 'number' || typeof value === 'boolean') {
+      await run(`UPDATE notation SET ${field} = ${value} WHERE teacher_id="${window.selected.matricule}" and trim=${window.trimestre.id} ;`)
+    }
+    else {
+      await run(`UPDATE notation SET ${field} = "${value}" WHERE teacher_id="${window.selected.matricule}" and trim=${window.trimestre.id} ;`)
+
+    }
+    var notations = await get(`select * from notation where  teacher_id="${window.selected.matricule}" and trim="${trimestre.id}" `)
+    if (notations.length != 0) {
+
+      setnotation(notations[0])
 
 
-        if (result.length != 0) {
-
-          setnotation(result[0])
-
-
-        }
-        else if (notation.id) {
-          setnotation({ id: undefined })
-        }
-        setloading(false)
-      })
-    }))
+    }
+    else if (notation.id) {
+      setnotation({ id: undefined })
+    }
+    setloading(false)
   }
-
 
 
   const handleChange = (event, newValue) => {
@@ -103,8 +108,8 @@ export default function InformationTabs(props) {
   };
 
   const startnotation = () => {
-    run(`insert into notation (teacher_id,trim) values ("${window.selected.matricule}","${trimestre.id}")`).then((result) => {
-      console.log(result)
+    run(`insert into notation (teacher_id,trim) values ("${window.selected.matricule}","${trimestre.id}")`).then((notations) => {
+      console.log(notations)
       setnotation({ id: undefined })
     })
 

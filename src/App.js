@@ -18,16 +18,16 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Sidebar />
+        <Sidebar />
 
-      <Routes>
-      <Route path="/staff" element={<Staff/>} />
-          <Route path="/notation" element={<Notation/>} />
+        <Routes>
+          <Route path="/staff" element={<Staff />} />
+          <Route path="/notation" element={<Notation />} />
           <Route path="/" element={<Home />} />
-      <Route path="*" element={<Navigate to="/"/>} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
-   
+
     </div>
   );
 }

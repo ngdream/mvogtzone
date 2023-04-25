@@ -1,0 +1,38 @@
+Date : 2023-03-29 17:42:26
+Directory : /home/ngdream/Documents/projects/mvogtzone/public
+Total : 7 files,  767 codes, 29 comments, 171 blanks, all 967 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |          2 |        331 |         23 |         95 |        449 |
+| JavaScript |          1 |        241 |          6 |         74 |        321 |
+| SQL        |          1 |        167 |          0 |          0 |        167 |
+| JSON       |          2 |         28 |          0 |          1 |         29 |
+| CSS        |          1 |          0 |          0 |          1 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                     |          7 |        767 |         29 |        171 |        967 |
+| . (Files)                                                             |          4 |        289 |         29 |         76 |        394 |
+| bulletin                                                              |          2 |        311 |          0 |         95 |        406 |
+| database                                                              |          1 |        167 |          0 |          0 |        167 |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                              | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /home/ngdream/Documents/projects/mvogtzone/public/bulletin/model.css  | CSS        |          0 |          0 |          1 |          1 |
+| /home/ngdream/Documents/projects/mvogtzone/public/bulletin/model.html | HTML       |        311 |          0 |         94 |        405 |
+| /home/ngdream/Documents/projects/mvogtzone/public/database/schema.sql | SQL        |        167 |          0 |          0 |        167 |
+| /home/ngdream/Documents/projects/mvogtzone/public/index.html          | HTML       |         20 |         23 |          1 |         44 |
+| /home/ngdream/Documents/projects/mvogtzone/public/main.js             | JavaScript |        241 |          6 |         74 |        321 |
+| /home/ngdream/Documents/projects/mvogtzone/public/manifest.json       | JSON       |         25 |          0 |          1 |         26 |
+| /home/ngdream/Documents/projects/mvogtzone/public/setting.json        | JSON       |          3 |          0 |          0 |          3 |
+| Total                                                                 |            |        767 |         29 |        171 |        967 |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+

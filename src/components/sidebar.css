@@ -1,67 +1,56 @@
-.sidebar
-{
-   
-    border-right: 0.5px solid rgb(230,227,227);
-    background-color:#fff;
+.sidebar {
+
+    border-right: 0.5px solid rgb(230, 227, 227);
+    background-color: #fff;
     padding: 10px 0;
     text-align: center;
-    
+
 }
 
 
-a
-{
+a {
     text-decoration: none;
 }
 
-.sidebar a
-{
+.sidebar a {
     color: #fff;
 }
 
 
 
 
-.sidebar ul li
-{
+.sidebar ul li {
     display: flex;
     align-items: center;
-   padding: 5px 10px;
-   border-radius: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
 
 }
 
-.sidebar ul li span
-{
+.sidebar ul li span {
     margin-left: 10px;
 }
 
-.sidebar .icon
-{
+.sidebar .icon {
     color: #bbb;
     font-size: 3rem;
 }
 
 
-.sidebar  li:hover .icon
-{
-color: #333;
+.sidebar li:hover .icon {
+    color: #333;
 }
 
-.sidebar a.active .icon
-{
-    color:#00ccff;
- 
+.sidebar a.active .icon {
+    color: #00ccff;
+
 }
 
 
 
-.sidebar .icon:focus
-{
-}
+.sidebar .icon:focus {}
 
-.bottom
-{
+.bottom {
     position: absolute;
     bottom: 0;
     width: 100%;

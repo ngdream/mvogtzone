@@ -82,10 +82,8 @@ const Sidebar = () => {
       <Dialog open={info} onClose={handleCloseinfo}>
         <DialogTitle>merci pour votre confiance</DialogTitle>
         <DialogContent>
-          ce logiciel à été créé par ngdream pour la gestion des notes des professeurs du college
+          ce logiciel à été créé par Mr Nguewo fossong christian pour la gestion des notes des professeurs du college
           catholique bilingue bilngue francois xavier mvogt
-
-          <a href='https://google.com'> ngdream</a>
 
         </DialogContent>
         <DialogActions>

@@ -1,16 +1,15 @@
-const {app,BrowserWindow,Menu,ipcMain, dialog} = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
 const path = require("path");
 const { shell } = require('electron')
 const sqlite3 = require('sqlite3');
 const fs = require('fs');
-const { Notes } = require("@mui/icons-material");
 
 var options = {
   silent: false,
   printBackground: true,
   color: false,
   margin: {
-      marginType: 'printableArea'
+    marginType: 'printableArea'
   },
   landscape: false,
   pagesPerSheet: 1,
@@ -22,8 +21,9 @@ var options = {
 
 const isMac = process.platform === 'darwin'
 
-const db = new sqlite3.Database(path.join(__dirname,'./database/database.db'));
-const schema = fs.readFileSync(path.join(__dirname,'./database/schema.sql')).toString();
+console.log(process.env.APPDATA)
+const db = new sqlite3.Database(path.join(process.env.APPDATA, './mvogtzone/database.db'));
+const schema = fs.readFileSync(path.join(__dirname, './database/schema.sql')).toString();
 
 const dataArr = schema.toString().split(");");
 
@@ -50,33 +50,32 @@ db.serialize(() => {
 
 ipcMain.on('getprofs-message', (event, arg) => {
   db.all("SELECT * FROM  professeur;", (err, rows) => {
-      event.reply('getprofs-reply', (err && err.message) || rows);
+    event.reply('getprofs-reply', (err && err.message) || rows);
   });
-  
+
 });
 
 
 ipcMain.on('run', (event, arg) => {
   const sql = arg;
   db.run(sql, (err, rows) => {
-    if (err)
-    {
+    if (err) {
       console.log(err)
       event.reply('error-reply')
-          }
+    }
 
     else
       event.reply('asynchronous-reply', (err && err.message) || rows);
   });
-  
+
 });
 
 
 ipcMain.on('getquarter-message', (event, arg) => {
   db.all("", (err, rows) => {
-      event.reply('getquarter-reply', (err && err.message) || rows);
+    event.reply('getquarter-reply', (err && err.message) || rows);
   });
-  
+
 });
 
 
@@ -84,9 +83,9 @@ ipcMain.on('getquarter-message', (event, arg) => {
 
 ipcMain.on('get-message', (event, arg) => {
   db.all(arg, (err, rows) => {
-      event.reply('get-reply', [(err && err.message) || rows,arg]);
+    event.reply('get-reply', [(err && err.message) || rows, arg]);
   });
-  
+
 });
 
 
@@ -99,44 +98,42 @@ ipcMain.on('printnotation', (event, arg) => {
     }
   });
   var model = fs.readFileSync(path.join(__dirname, "/bulletin/model.html")).toString()
-  
-  db.all(`select * from notation where  teacher_id="${arg[0].matricule}" and trim=${arg[1].id} `, (result,rows) => {
+
+  db.all(`select * from notation where  teacher_id="${arg[0].matricule}" and trim=${arg[1].id} `, (result, rows) => {
     {
 
-      if (rows.length)
-      {
-        var notation=rows[0]
+      if (rows.length) {
+        var notation = rows[0]
 
-        db.all(`select classe from tranche where teacher_id="${arg[0].matricule}" and trim=${arg[1].id} group by (classe) `, (result, rows) =>
-        {
-       
-        
+        db.all(`select classe from tranche where teacher_id="${arg[0].matricule}" and trim=${arg[1].id} group by (classe) `, (result, rows) => {
+
+
           var classes = []
           console.log(rows)
           for (var c of rows)
             classes.push(c.classe)
           classes.toString()
-  
+
           var notes = new Object()
           notes.em = (notation.em >= 2) ? 0 : 2
-  
+
           notes.pc = (notation.pc == 1) ? 4 : 0
           notes.pr = (notation.pr == 1) ? 4 : 0
           notes.ps = (notation.ps == 1) ? 4 : 0
           notes.pag = (notation.pag == 1) ? 4 : 0
           notes.ace = (notation.pce >= 2) ? 0 : 2
           notes.acc = (notation.pcc >= 2) ? 0 : 2
-  
+
           notes.ra = (notation.ra == 1) ? 4 : 0
           notes.ei = (notation.ei == 1) ? 4 : 0
           notes.re = (notation.re == 1) ? 2 : 0
           notes.car = (notation.car == 1) ? 2 : 0
           notes.tv = (notation.tv == 1) ? 2 : 0
-          notes.r =(6 - (notation.r)*2 >0)? 6 - (notation.r)*2:0
-        
-  
-          notes.ma=(8 - (notation.ma)*4 >0)? 8- (notation.ma)*4:0
-          notes.cl= (notation.cl == 1) ? 4 : 0
+          notes.r = (6 - (notation.r) * 2 > 0) ? 6 - (notation.r) * 2 : 0
+
+
+          notes.ma = (8 - (notation.ma) * 4 > 0) ? 8 - (notation.ma) * 4 : 0
+          notes.cl = (notation.cl == 1) ? 4 : 0
           notes.tct = ((notation.modc == 1) ? 1 : 0)
             + ((notation.chap == 1) ? 1 : 0) +
             ((notation.ca == 1) ? 1 : 0) +
@@ -146,55 +143,59 @@ ipcMain.on('printnotation', (event, arg) => {
             ((notation.th == 1) ? 1 : 0) +
             ((notation.planc == 1) ? 1 : 0) +
             ((notation.updatec == 1) ? 1 : 0)
-          
-          notes.tra=(4- (notation.callreg)*2 >0)? 4 - (notation.callreg)*2:0
+
+          notes.tra = (4 - (notation.callreg) * 2 > 0) ? 4 - (notation.callreg) * 2 : 0
           notes.cs = (notation.cs == 1) ? 4 : 0
           notes.cc = (notation.cc == 1) ? 4 : 0
           notes.tv = (notation.tv == 1) ? 4 : 0
-  
-          notes.rds=(4- (notation.rds)*2 >0)? 4 - (notation.rds)*2:0
-  
+
+          notes.rds = (4 - (notation.rds) * 2 > 0) ? 4 - (notation.rds) * 2 : 0
+
           notes.rdn = (4 - (notation.rdn) * 2 > 0) ? 4 - (notation.rdn) * 2 : 0
           notes.renh = (notation.renh == 1) ? 4 : 0
           notes.rpp = (notation.rpp == 1) ? 4 : 0
           notes.fpc = (notation.fpc == 1) ? 1 : 0
           notes.cp = (notation.cp == 1) ? 4 : 0
-          notes.fp = (notation.fp == 1) ? 2: 0
+          notes.fp = (notation.fp == 1) ? 2 : 0
           notes.rch = (notation.rch == 1) ? 4 : 0
           notes.qc = (notation.qc == 1) ? 4 : 0
-  
+
           notes.mvt = (4 - (notation.mvt) * 2 > 0) ? 4 - (notation.mvt) * 2 : 0
           notes.mvc = (4 - (notation.mvc) * 2 > 0) ? 4 - (notation.mvc) * 2 : 0
           notes.sp = (notation.sp == 1) ? 4 : 0
-          notes.dfsp= (notation.dfsp == 1) ? 2 : 0
-          notes.drce= (notation.drce == 1) ? 4 : 0
-  
+          notes.dfsp = (notation.dfsp == 1) ? 2 : 0
+          notes.drce = (notation.drce == 1) ? 4 : 0
+
           notes.prc = (notation.prc == 1) ? 2 : 0
-  
-          notes.rpe= (notation.rpe == 1) ? 2 : 0
-  
-          notes.dsp= (notation.dsp == 1) ? 2 : 0
-  
+
+          notes.rpe = (notation.rpe == 1) ? 2 : 0
+
           notes.dsp = (notation.dsp == 1) ? 2 : 0
-          notes.dch= (notation.dch== 1) ? 12: 0
-  
-  
-  
-          
-          
-  
+
+          notes.dsp = (notation.dsp == 1) ? 2 : 0
+          notes.dch = (notation.dch == 1) ? 12 : 0
+
+          notes.pl = 4
+          notes.al = 4
+
+          notes.cge = notes.mvt + notes.mvc + notes.sp + notes.dfsp + notes.drce + notes.prc + notes.rpe + notes.dch + notes.dsp
+          notes.apt = notes.ma + notes.cl + notes.tct + notes.tra
+          notes.disc = notes.pl + notes.em + notes.al + notes.pc + notes.pr + notes.ps + notes.pag + notes.ace + notes.acc + notes.ra + notes.ei + notes.re + notes.car + notes.tv + notes.r
+
+
+
           var bulletin = model.replace("{trimestre}", arg[1].lib[0]).
-            replace("{nom}",arg[0].name)
-          .replace("{year}", arg[1].lib.substring(1))
+            replace("{nom}", arg[0].name)
+            .replace("{year}", arg[1].lib.substring(1))
             .replace("{DISCIPLINE}", arg[0].matiere).
             replace("{CLASSES}", classes).
-            replace("{DISC}",0)
+            replace("{DISC}", notes.disc)
             .replace("{pl}", notes.pl)
             .replace("{em}", notes.em)
             .replace("{al}", notes.al).
             replace("{pc}", notes.pc).
             replace("{pr}", notes.pr).
-            replace("{ps}",notes.ps).
+            replace("{ps}", notes.ps).
             replace("{pag}", notes.pag).
             replace("{ace}", notes.ace).
             replace("{acc}", notes.acc).
@@ -204,8 +205,8 @@ ipcMain.on('printnotation', (event, arg) => {
             replace("{car}", notes.car).
             replace("{tv}", notes.tv).
             replace("{r}", notes.r).
-  
-            replace("{APT}",0).
+
+            replace("{APT}", notes.apt).
             replace("{ma}", notes.ma).
             replace("{cl}", notes.cl)
             .replace("{tct}", notes.tct).
@@ -221,8 +222,8 @@ ipcMain.on('printnotation', (event, arg) => {
             replace("{fp}", notes.fp).
             replace("{rch}", notes.rch).
             replace("{qc}", notes.qc).
-            
-            replace("{CCE}",0).
+
+            replace("{CCE}", notes.cge).
             replace("{mvt}", notes.mvt).
             replace("{mvc}", notes.mvc).
             replace("{sp}", notes.sp)
@@ -232,37 +233,35 @@ ipcMain.on('printnotation', (event, arg) => {
             replace("{rpe}", notes.rpe).
             replace("{dsp}", notes.dsp).
             replace("{dch}", notes.dch)
-          
-          
-          
-          
-          
-        win.loadURL(`data:text/html;charset=utf-8,${bulletin}`)
-    
-        pdfPath = path.join(__dirname, "bulletin/test.pdf")
-    
-        win.webContents.on('did-finish-load', () => {
-          win.webContents.printToPDF(options).then((data) => {
-            fs.writeFile(pdfPath, data, err => {
-              if (err) return console.log(err.message);
-              shell.openExternal('file://' + pdfPath);
-            
-            })
+
+
+
+
+          win.loadURL(`data:text/html;charset=utf-8,${bulletin}`)
+
+          pdfPath = path.join(__dirname, "bulletin/test.pdf")
+
+          win.webContents.on('did-finish-load', () => {
+            win.webContents.printToPDF(options).then((data) => {
+              fs.writeFile(pdfPath, data, err => {
+                if (err) return console.log(err.message);
+                shell.openExternal('file://' + pdfPath);
+
+              })
+            });
           });
-        });
-  
+
         })
-        
+
       }
-      else
-      {
-        dialog.showErrorBox("aucune notation","ce professeur n'a pas été noté ce trimestre")
+      else {
+        dialog.showErrorBox("aucune notation", "ce professeur n'a pas été noté ce trimestre")
       }
 
     }
 
 
-  
+
   });
 })
 
@@ -272,71 +271,35 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    title:"mvogtnotation",
+    title: "mvogtnotation",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-  
+
     },
   });
 
   const template = [
-    // { role: 'appMenu' }
-    ...(isMac ? [{
-      label: app.name,
-      submenu: [
-        { role: 'about' },
-        { type: 'separator' },
-        { role: 'services' },
-        { type: 'separator' },
-        { role: 'hide' },
-        { role: 'hideOthers' },
-        { role: 'unhide' },
-        { type: 'separator' },
-        { role: 'quit' }
-      ]
-    }] : []),
-    // { role: 'fileMenu' }
     {
       label: 'données',
       submenu: [
         {
-         click: mainWindow.webContents.send('update-counter', -1),
-         label:'supprimer toutes les données'
-       }
-      ]
-    },
-    // { role: 'editMenu' }
-    {
-      label: 'professeur',
-      submenu: [
-        {
-          label: 'ajouter a partir d\'un fichier exel ',
-  
+          click: mainWindow.webContents.send('update-counter', -1),
+          label: 'supprimer toutes les données'
         }
       ]
     },
-    // { role: 'viewMenu' }
-    {
-      label: 'trimestre',
-      submenu: [
-        
-        {
-          label: 'debuter un nouveau trimestre',
-        },
-    
-      ]
-    },
-    
+
+
     {
       label: 'aide',
       submenu: [
         {
           label: 'a propos',
-    
+
         },
-  
-  
+
+
         {
           label: 'lire la documentation',
           click: async () => {
@@ -347,17 +310,11 @@ function createWindow() {
     }
   ]
 
-
-
-
-  
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
-   mainWindow.maximize()
+  mainWindow.maximize()
   mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
- mainWindow.webContents.openDevTools()
 }
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+
+
 app.on("ready", createWindow);

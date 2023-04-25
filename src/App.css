@@ -7,8 +7,7 @@
   height: 100%;
 }
 
-.alt
-{
+.alt {
   height: 100%;
   width: 100%;
   display: flex;
@@ -16,28 +15,27 @@
   align-items: center;
   justify-content: center;
 }
-*
-{
-  box-sizing:border-box;
-  font-family:"munito",sans-serif;
-  position:relative;
+
+* {
+  box-sizing: border-box;
+  font-family: "munito", sans-serif;
+  position: relative;
   user-select: none;
 }
 
 
-ul
-{
-    list-style: none;
-    padding: 0;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 
-.container
-{
+.container {
   width: 100%;
-  padding:20px 35px;
- 
+  padding: 20px 35px;
+
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -64,9 +62,8 @@ ul
   color: #61dafb;
 }
 
-*:focus
-{
-    outline: 0;
+*:focus {
+  outline: 0;
 
 }
 
@@ -94,6 +91,7 @@ ul
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

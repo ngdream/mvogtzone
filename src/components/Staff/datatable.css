@@ -1,18 +1,16 @@
-.datatable
-{
+.datatable {
     height: 100%;
-    
+
 }
 
-.datatableTitle
-{
-    width:100%;
-    display:flex
+.datatableTitle {
+    width: 100%;
+    display: flex
 }
 
 
 
-.datatableTitle{
+.datatableTitle {
     width: 100%;
     font-size: 24px;
     color: gray;
@@ -23,7 +21,7 @@
 }
 
 
-.link{
+.link {
     text-decoration: none;
     color: green;
     font-size: 16px;

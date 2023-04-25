@@ -4,7 +4,7 @@ import PersonOutlineOutlined from "@mui/icons-material/PersonOutlineOutlined";
 import AccountBalanceWalletOutLinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlined from "@mui/icons-material/MonetizationOnOutlined";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Book, Handshake } from "@mui/icons-material";
 import { openexternal } from "../../renderer";
 
@@ -50,7 +50,7 @@ const Widget = ({ type }) => {
                 title: "DOCS",
                 isMoney: true,
                 link: "learn how to use",
-                linkurl: "https://ngdream.com",
+                linkurl: "https://ngdream.github.io/mvogt_doc/",
                 icon: (
                     <Book className="icon"
                         style={{
@@ -70,7 +70,14 @@ const Widget = ({ type }) => {
             <div className="left">
                 <span className="title">{data.title}</span>
                 <span className="counter">{data.isMoney}</span>
-                <button onClick={(e) => { openexternal(e, data.linkurl) }}><span className="link">{data.link}</span></button>
+
+
+                <button onClick={(e) => {
+                    data.type != "PROFESSEUR" ? (openexternal(e, data.linkurl)) :
+                        (Navigate("/"))
+                }}><span className="link">{data.link}</span></button>
+
+
             </div>
             <div className="right">
                 <div className="percentage positive">

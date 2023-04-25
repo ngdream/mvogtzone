@@ -1,0 +1,65 @@
+Date : 2023-03-29 17:43:10
+Directory : /home/ngdream/Documents/projects/mvogtzone/src
+Total : 26 files,  1926 codes, 12 comments, 527 blanks, all 2465 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript     |         10 |      1,177 |          8 |        290 |      1,475 |
+| JavaScript JSX |          7 |        482 |          0 |        164 |        646 |
+| CSS            |          8 |        266 |          4 |         73 |        343 |
+| XML            |          1 |          1 |          0 |          0 |          1 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         26 |      1,926 |         12 |        527 |      2,465 |
+| . (Files)                                                                                 |          8 |        201 |         11 |         67 |        279 |
+| components                                                                                |         10 |      1,408 |          1 |        347 |      1,756 |
+| components (Files)                                                                        |          2 |        107 |          0 |         48 |        155 |
+| components/Staff                                                                          |          2 |        394 |          1 |         84 |        479 |
+| components/information                                                                    |          4 |        790 |          0 |        199 |        989 |
+| components/widgets                                                                        |          2 |        117 |          0 |         16 |        133 |
+| context                                                                                   |          2 |         36 |          0 |          7 |         43 |
+| pages                                                                                     |          6 |        281 |          0 |        106 |        387 |
+| pages/home                                                                                |          2 |         39 |          0 |          8 |         47 |
+| pages/notation                                                                            |          2 |        187 |          0 |         92 |        279 |
+| pages/settings                                                                            |          1 |         46 |          0 |          3 |         49 |
+| pages/staff                                                                               |          1 |          9 |          0 |          3 |         12 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                  | language       | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| /home/ngdream/Documents/projects/mvogtzone/src/App.css                                    | CSS            |         75 |          4 |         19 |         98 |
+| /home/ngdream/Documents/projects/mvogtzone/src/App.js                                     | JavaScript     |         30 |          0 |          6 |         36 |
+| /home/ngdream/Documents/projects/mvogtzone/src/App.test.js                                | JavaScript     |          7 |          0 |          2 |          9 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/Staff/DataTable.js              | JavaScript     |        368 |          1 |         76 |        445 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/Staff/datatable.css             | CSS            |         26 |          0 |          8 |         34 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/information/TimeTable.js        | JavaScript     |        123 |          0 |         36 |        159 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/information/edition.css         | CSS            |          4 |          0 |          0 |          4 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/information/informationtabs.jsx | JavaScript JSX |        126 |          0 |         38 |        164 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/information/notationtabs.js     | JavaScript     |        537 |          0 |        125 |        662 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/sidebar.css                     | CSS            |         37 |          0 |         20 |         57 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/sidebar.jsx                     | JavaScript JSX |         70 |          0 |         28 |         98 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/widgets/widget.css              | CSS            |         34 |          0 |          5 |         39 |
+| /home/ngdream/Documents/projects/mvogtzone/src/components/widgets/widget.jsx              | JavaScript JSX |         83 |          0 |         11 |         94 |
+| /home/ngdream/Documents/projects/mvogtzone/src/context/darkModeContext.js                 | JavaScript     |         14 |          0 |          5 |         19 |
+| /home/ngdream/Documents/projects/mvogtzone/src/context/darkModeReducer.js                 | JavaScript     |         22 |          0 |          2 |         24 |
+| /home/ngdream/Documents/projects/mvogtzone/src/index.css                                  | CSS            |         12 |          0 |          2 |         14 |
+| /home/ngdream/Documents/projects/mvogtzone/src/index.js                                   | JavaScript     |         12 |          3 |          5 |         20 |
+| /home/ngdream/Documents/projects/mvogtzone/src/logo.svg                                   | XML            |          1 |          0 |          0 |          1 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/home/Home.jsx                        | JavaScript JSX |         14 |          0 |          3 |         17 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/home/home.css                        | CSS            |         25 |          0 |          5 |         30 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/notation/edition.css                 | CSS            |         53 |          0 |         14 |         67 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/notation/notation.jsx                | JavaScript JSX |        134 |          0 |         78 |        212 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/settings/setting.jsx                 | JavaScript JSX |         46 |          0 |          3 |         49 |
+| /home/ngdream/Documents/projects/mvogtzone/src/pages/staff/Staff.jsx                      | JavaScript JSX |          9 |          0 |          3 |         12 |
+| /home/ngdream/Documents/projects/mvogtzone/src/renderer.js                                | JavaScript     |         63 |          0 |         32 |         95 |
+| /home/ngdream/Documents/projects/mvogtzone/src/setupTests.js                              | JavaScript     |          1 |          4 |          1 |          6 |
+| Total                                                                                     |                |      1,926 |         12 |        527 |      2,465 |
++-------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

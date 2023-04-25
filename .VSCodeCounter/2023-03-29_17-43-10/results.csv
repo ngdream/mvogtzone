@@ -1,0 +1,28 @@
+"filename", "language", "JavaScript JSX", "CSS", "JavaScript", "XML", "comment", "blank", "total"
+"/home/ngdream/Documents/projects/mvogtzone/src/App.css", "CSS", 0, 75, 0, 0, 4, 19, 98
+"/home/ngdream/Documents/projects/mvogtzone/src/App.js", "JavaScript", 0, 0, 30, 0, 0, 6, 36
+"/home/ngdream/Documents/projects/mvogtzone/src/App.test.js", "JavaScript", 0, 0, 7, 0, 0, 2, 9
+"/home/ngdream/Documents/projects/mvogtzone/src/components/Staff/DataTable.js", "JavaScript", 0, 0, 368, 0, 1, 76, 445
+"/home/ngdream/Documents/projects/mvogtzone/src/components/Staff/datatable.css", "CSS", 0, 26, 0, 0, 0, 8, 34
+"/home/ngdream/Documents/projects/mvogtzone/src/components/information/TimeTable.js", "JavaScript", 0, 0, 123, 0, 0, 36, 159
+"/home/ngdream/Documents/projects/mvogtzone/src/components/information/edition.css", "CSS", 0, 4, 0, 0, 0, 0, 4
+"/home/ngdream/Documents/projects/mvogtzone/src/components/information/informationtabs.jsx", "JavaScript JSX", 126, 0, 0, 0, 0, 38, 164
+"/home/ngdream/Documents/projects/mvogtzone/src/components/information/notationtabs.js", "JavaScript", 0, 0, 537, 0, 0, 125, 662
+"/home/ngdream/Documents/projects/mvogtzone/src/components/sidebar.css", "CSS", 0, 37, 0, 0, 0, 20, 57
+"/home/ngdream/Documents/projects/mvogtzone/src/components/sidebar.jsx", "JavaScript JSX", 70, 0, 0, 0, 0, 28, 98
+"/home/ngdream/Documents/projects/mvogtzone/src/components/widgets/widget.css", "CSS", 0, 34, 0, 0, 0, 5, 39
+"/home/ngdream/Documents/projects/mvogtzone/src/components/widgets/widget.jsx", "JavaScript JSX", 83, 0, 0, 0, 0, 11, 94
+"/home/ngdream/Documents/projects/mvogtzone/src/context/darkModeContext.js", "JavaScript", 0, 0, 14, 0, 0, 5, 19
+"/home/ngdream/Documents/projects/mvogtzone/src/context/darkModeReducer.js", "JavaScript", 0, 0, 22, 0, 0, 2, 24
+"/home/ngdream/Documents/projects/mvogtzone/src/index.css", "CSS", 0, 12, 0, 0, 0, 2, 14
+"/home/ngdream/Documents/projects/mvogtzone/src/index.js", "JavaScript", 0, 0, 12, 0, 3, 5, 20
+"/home/ngdream/Documents/projects/mvogtzone/src/logo.svg", "XML", 0, 0, 0, 1, 0, 0, 1
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/home/Home.jsx", "JavaScript JSX", 14, 0, 0, 0, 0, 3, 17
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/home/home.css", "CSS", 0, 25, 0, 0, 0, 5, 30
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/notation/edition.css", "CSS", 0, 53, 0, 0, 0, 14, 67
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/notation/notation.jsx", "JavaScript JSX", 134, 0, 0, 0, 0, 78, 212
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/settings/setting.jsx", "JavaScript JSX", 46, 0, 0, 0, 0, 3, 49
+"/home/ngdream/Documents/projects/mvogtzone/src/pages/staff/Staff.jsx", "JavaScript JSX", 9, 0, 0, 0, 0, 3, 12
+"/home/ngdream/Documents/projects/mvogtzone/src/renderer.js", "JavaScript", 0, 0, 63, 0, 0, 32, 95
+"/home/ngdream/Documents/projects/mvogtzone/src/setupTests.js", "JavaScript", 0, 0, 1, 0, 4, 1, 6
+"Total", "-", 482, 266, 1177, 1, 12, 527, 2465

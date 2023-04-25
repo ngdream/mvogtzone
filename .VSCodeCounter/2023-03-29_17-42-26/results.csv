@@ -1,0 +1,9 @@
+"filename", "language", "JavaScript", "HTML", "JSON", "SQL", "CSS", "comment", "blank", "total"
+"/home/ngdream/Documents/projects/mvogtzone/public/bulletin/model.css", "CSS", 0, 0, 0, 0, 0, 0, 1, 1
+"/home/ngdream/Documents/projects/mvogtzone/public/bulletin/model.html", "HTML", 0, 311, 0, 0, 0, 0, 94, 405
+"/home/ngdream/Documents/projects/mvogtzone/public/database/schema.sql", "SQL", 0, 0, 0, 167, 0, 0, 0, 167
+"/home/ngdream/Documents/projects/mvogtzone/public/index.html", "HTML", 0, 20, 0, 0, 0, 23, 1, 44
+"/home/ngdream/Documents/projects/mvogtzone/public/main.js", "JavaScript", 241, 0, 0, 0, 0, 6, 74, 321
+"/home/ngdream/Documents/projects/mvogtzone/public/manifest.json", "JSON", 0, 0, 25, 0, 0, 0, 1, 26
+"/home/ngdream/Documents/projects/mvogtzone/public/setting.json", "JSON", 0, 0, 3, 0, 0, 0, 0, 3
+"Total", "-", 241, 331, 28, 167, 0, 29, 171, 967

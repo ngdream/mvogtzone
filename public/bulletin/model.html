@@ -64,6 +64,31 @@
             margin:0;
             font-size: 1rem;
         }
+
+        .total
+        {
+            position: relative;
+            top: 75px;
+            width: 300px;
+            height: 2rem;
+            left: calc(100% - 300px);
+        }
+
+        .total td
+        {
+            text-transform: uppercase;
+            font-weight: 600;
+            width: 50%;
+            padding: 0 10px;
+        }
+        .total :nth-child(2)
+        {
+            text-align: right;
+        }
+        .note
+        {
+            width: 20px;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +117,7 @@
 
 
 
-    <H2> I - DISCIPLINE {DISC}/46</h2>
+    <H2> I - DISCIPLINE {DISC}/52</h2>
 
     <table>
 
@@ -105,7 +130,7 @@
 
         <tr>
             <td >ponctualité au cours</td>
-            <td >{pl}</td>
+            <td class="note">{pl}</td>
         </tr>
         <tr>
             <td> emargement fiche de presence</td>
@@ -146,13 +171,13 @@
         </tr>
 
         <tr>
-            <td>présence au conseil d'enseignement</td>
-            <td>{ace}</td>
+            <td >présence au conseil d'enseignement</td>
+            <td class="note">{ace}</td>
         </tr>
 
         <tr>
             <td>présence au conseil de classe</td>
-            <td>{acc}</td>
+            <td class="note">{acc}</td>
         </tr>
 
 
@@ -163,7 +188,7 @@
             
             <td class="block" rowspan="6">3</td>
             <td><h3>Attitude personelle</h3></td>
-            <td>6</td>
+            <td class="note">6</td>
         </tr>
         <tr>
             
@@ -208,7 +233,7 @@
     </table>
 
 
-    <H2>II- APTITUDES PEDAGOGIQUES {APT}/ 65</H2>
+    <H2>II- APTITUDES PEDAGOGIQUES {APT}/ 68</H2>
 
 
     <table>
@@ -217,7 +242,7 @@
             
             <td class="block" rowspan="3">1</td>
             <td><h3>Tenue de la classe et conduite de la lecon</h3></td>
-            <td>12</td>
+            <td class="note">12</td>
         </tr>
         <tr>
                         <td >maitrise </td>
@@ -320,7 +345,7 @@
     </table>
 
 
-    <H2>III- COORDINATIONS DES CONSEILS D'ENSEIGNEMENT {CCE} / 65</H2>
+    <H2>III- COORDINATIONS DES CONSEILS D'ENSEIGNEMENT {CCE} / 36</H2>
 
 
     <table>
@@ -338,41 +363,43 @@
         <tr>
          
             <td >suivi pédagogique</td>
-            <td >{sp}</td>
+            <td class="note">{sp}</td>
         </tr>
         <tr>
             <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {dfsp}</td>
+            <td class="note"> {dfsp}</td>
         </tr>
         <tr>
-            <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {drce}</td>
-        </tr>
-
-        <tr>
-            <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {prc}</td>
+            <td>Dépot des rapports des conseils d'enseignement</td>
+            <td class="note"> {drce}</td>
         </tr>
 
         <tr>
-            <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {rpe}</td>
+            <td>Présence aux réunions de coordination</td>
+            <td class="note"> {prc}</td>
+        </tr>
+
+        <tr>
+            <td>rapport avec la préfectures des études</td>
+            <td class="note"> {rpe}</td>
         </tr>
         <tr>
-            <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {dsp}</td>
+            <td>Dépot des sujets dans les préfectures</td>
+            <td class="note"> {dsp}</td>
         </tr>
         <tr>
-            <td>Dépot des fiches de suivi pédagogique</td>
-            <td> {dch}</td>
+            <td>Dépots des cours harmonisés</td>
+            <td class="note"> {dch}</td>
         </tr>
 
+    </table style="">
 
-
-
-
+    <table class="total">
+        <tr>
+            <td>Total</td>
+            <td> {TOTAL}/156</td>
+        </tr>
     </table>
-
 
 </body>
 </html

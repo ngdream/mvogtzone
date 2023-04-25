@@ -43,9 +43,7 @@ const Notation = () => {
 
 
 
-  const add = (numero) => {
-
-    setonadd(true)
+  const add = async (numero) => {
 
     const getlibfromlast = (last) => {
       var lasttri = parseInt(last.lib[0])
@@ -86,63 +84,37 @@ const Notation = () => {
       return tri + yr
     }
 
-    get("SELECT * FROM trimestre  ORDER BY id DESC LIMIT 1;").then((result) => {
+    var result = await get("SELECT * FROM trimestre  ORDER BY id DESC LIMIT 1;")
 
 
+    var lib
+    if (result.length == 0) {
+      lib = getlibfromnow()
 
+    }
 
+    else {
+      lib = getlibfromlast(result[0])
 
-      var lib
-      if (result.length == 0) {
-        lib = getlibfromnow()
+    }
 
-      }
+    await run(`insert into trimestre (lib) values ("${lib}");`)
 
-      else {
-        lib = getlibfromlast(result[0])
+    const [trimestre] = await get("SELECT * FROM trimestre  ORDER BY id DESC LIMIT 1;")
+    actualize()
+    const profs = await getprofs()
+    for (var prof in profs) {
+      run(`insert into notation (teacher_id,trim) values ("${profs[prof].matricule}","${trimestre.id}")`)
 
-      }
-
-      run(`insert into trimestre (lib) values ("${lib}");`).then((result) => {
-
-        get("SELECT * FROM trimestre  ORDER BY id DESC LIMIT 1;").then((result) => {
-          var newtrimestre = result[0]
-          actualize()
-          getprofs().then((result) => {
-            console.log(result)
-            var profs = result
-            for (var prof in result) {
-              run(`insert into notation (teacher_id,trim) values ("${result[prof].matricule}","${newtrimestre.id}")`)
-
-
-              var periodes = ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8",
-                "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "me1",
-                "me2", "me3", "me4", "me5", "me6", "me7", "me8",
-                "j1", "j2", "j3", "j4", "j5", "j6", "j7", "j8",
-                "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8",
-                "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"]
-
-              var tn = 0
-
-              for (var p of periodes) {
-                run(`insert into tranche (teacher_id,trim,periode) values ("${result[prof].matricule}","${newtrimestre.id}","${p}")`).then((result) => {
-                  tn++
-                  if (tn == 48 && prof == profs.length - 1)
-                    setonadd(false)
-
-                })
-
-              }
-            }
-          })
-        });
-      })
-
-
-    })
+    }
+    const [lasttrimestre] = await get("SELECT * FROM trimestre  ORDER BY id DESC LIMIT 1;")
+    Settrimestre(lasttrimestre)
 
 
   }
+
+
+
 
 
   const remove = (lib) => {
